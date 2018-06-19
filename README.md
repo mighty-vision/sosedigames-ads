@@ -12,7 +12,7 @@
 
 ### ⚙️ Requirements for ads:
 
-<img width="256" title=""Google AdWords src="https://raw.githubusercontent.com/mighty-vision/sosedigames-ads/master/readme-img/Google_AdWords.png?token=AOaORQvVZvld1bOa82swfjg7sg_pg6kmks5bMptswA%3D%3D">
+<img width="256" title="Google AdWords src="https://raw.githubusercontent.com/mighty-vision/sosedigames-ads/master/readme-img/Google_AdWords.png?token=AOaORQvVZvld1bOa82swfjg7sg_pg6kmks5bMptswA%3D%3D">
 
 
 Basic requirements - [here](https://support.google.com/adwords/answer/1722096?hl=en#HTML5)
