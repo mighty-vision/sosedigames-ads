@@ -2,8 +2,76 @@
 <html>
 <head>
   <title> Root page </title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      border: none;
+      outline: none;
+      box-shadow: none;
+      background: none;
+      box-sizing: border-box;
+    }
+
+    body {
+      padding: 30px;
+      display: flex;
+    }
+
+    .ad {
+      width: 100%;
+    }
+
+    .ad-240-400 {
+      width: 240px;
+      height: 400px;
+    }
+
+    .adBox {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .controls {
+      margin-top: 10px;
+      display: flex;
+      justify-content: center;
+    }
+
+    button {
+      padding: 7px 20px;
+      background-color: #2ecc71;
+      color: white;
+      cursor: pointer;
+    }
+
+    .play {
+      margin-right: 10px;
+    }
+
+    .stop {
+      background-color: #EC644B;
+    }
+  </style>
 </head>
 <body>
-  <h1> Test </h1>
+  <div class="adBox">
+    <iframe class="ad ad-240-400" src="template/dist/index.html"></iframe>
+    <div class="controls">
+      <button class="play"> Play </button>
+      <button class="stop"> Stop </button>
+    </div>
+  </div>
+
+  <script>
+    var adBox = document.querySelectorAll('.adBox');
+
+    for(var i = 0; i < adBox.length; i++) {
+      adBox[i].addEventListener('click', () => {
+        var ifr = document.querySelector('.ad').contentWindow.document.body;
+        console.log(ifr)
+      });
+    }
+  </script>
 </body>
 </html>
