@@ -26,7 +26,7 @@ Requirements - [here](https://yandex.com/adv/requirements/html5)
 
 ---
 
-### ⚠️ Commom recomendations
+### ⚠️ Commom recommendations
 
 1. Advertising platforms define size limits in zipped state. So 150kb limit is for already zipped ad;
 2. Please, use image compressors. Like [Tinypng](http://tinypng.com) and [Svgomg](https://jakearchibald.github.io/svgomg/)
