@@ -5,15 +5,15 @@
 //*** Basic styles ***//
 
 //*** Dev. Comment for production build ***//
-// .addBody.totalPause {
-//   .ad {
-//     overflow: visible !important;
-//   }
+.addBody.totalPause {
+  // .ad {
+  //   overflow: visible !important;
+  // }
 
-//   * {
-//     animation-play-state: paused !important; 
-//   }
-// }
+  * {
+    animation-play-state: paused !important; 
+  }
+}
 
 
 ///*** Basic vars ***///
@@ -50,11 +50,6 @@ $font: 'Arial', sans-serif;
 
 
 ///*** Ad ***///
-
-body {
-  background-color: grey;
-}
-
 .ad {
   width: $widthAdd;
   height: $heightAdd;
@@ -63,15 +58,6 @@ body {
   cursor: pointer;
   font-family: $font;
   position: relative;
-  left: 500px;
-  
-  .wrapper3d {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    left: 0;
-    top: 0;
-  }
 
   .parallax {
     transition: transform 0.7s;

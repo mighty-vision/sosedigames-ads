@@ -49,7 +49,7 @@
       margin-right: 10px;
     }
 
-    .stop {
+    .pause {
       background-color: #EC644B;
     }
   </style>
@@ -59,7 +59,7 @@
     <iframe class="ad ad-240-400" src="template/dist/index.html"></iframe>
     <div class="controls">
       <button class="play"> Play </button>
-      <button class="stop"> Stop </button>
+      <button class="pause"> Pause </button>
     </div>
   </div>
 
@@ -67,11 +67,19 @@
     var adBox = document.querySelectorAll('.adBox');
 
     for(var i = 0; i < adBox.length; i++) {
-      adBox[i].addEventListener('click', () => {
-        var ifr = document.querySelector('.ad').contentWindow.document.body;
-        console.log(ifr)
+      adBox[i].addEventListener('click', (e) => {
+        var curentAd = e.currentTarget.firstElementChild.contentWindow.document.body;
+
+        if(e.target.classList.contains('play')) {
+          curentAd.classList.add('totalPause');
+        }
+
+        if(e.target.classList.contains('pause')) {
+          curentAd.classList.remove('totalPause');
+        }
       });
     }
   </script>
 </body>
+
 </html>
