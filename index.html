@@ -71,11 +71,11 @@
         var curentAd = e.currentTarget.firstElementChild.contentWindow.document.body;
 
         if(e.target.classList.contains('play')) {
-          curentAd.classList.add('totalPause');
+          curentAd.classList.remove('totalPause');
         }
 
         if(e.target.classList.contains('pause')) {
-          curentAd.classList.remove('totalPause');
+          curentAd.classList.add('totalPause');
         }
       });
     }
