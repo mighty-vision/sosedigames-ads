@@ -1,9 +1,11 @@
 var adBox = document.querySelectorAll('.adBox');
 
-for(var i = 0; i < adBox.length; i++) {
-  var curentAd = adBox[i].firstElementChild.contentWindow.document.body;
+for(var r = 0; r < adBox.length; r++) {
+  var curentAd = adBox[r].firstElementChild.contentWindow.document.body;
 
   curentAd.classList.add('totalPause');
+
+  console.log(curentAd)
 }
 
 for(var i = 0; i < adBox.length; i++) {
