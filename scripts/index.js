@@ -1,13 +1,5 @@
 var adBox = document.querySelectorAll('.adBox');
 
-for(var r = 0; r < adBox.length; r++) {
-  var curentAd = adBox[r].firstElementChild.contentWindow.document.body;
-
-  curentAd.classList.add('totalPause');
-
-  console.log(curentAd)
-}
-
 for(var i = 0; i < adBox.length; i++) {
   adBox[i].addEventListener('click', (e) => {
     var curentAd = e.currentTarget.firstElementChild.contentWindow.document.body;
