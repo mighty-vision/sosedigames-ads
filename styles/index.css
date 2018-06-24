@@ -1,0 +1,326 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  background: none;
+  box-sizing: border-box;
+  font-size: inherit;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  padding: 30px;
+  padding-right: 400px;
+  background-color: #f7f7f7;
+  font-family: 'Roboto', sans-serif;
+}
+
+.ads {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.loader {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 21123123;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f7f7f7;
+  animation: hideLoader 0.25s 3s forwards;
+  pointer-events: none;
+}
+
+.loadTitle {
+  margin-top: 30px;
+  font-weight: 500;
+}
+
+.logo {
+  width: 300px;
+  will-change: filter;
+  filter: drop-shadow(3px 3px 3px lightgrey);
+  animation: loaderAnim 0.6s infinite alternate;
+}
+
+@keyframes loaderAnim {
+  100% {
+    transform: scale(1.03);
+    filter: drop-shadow(3px 3px 3px grey);
+  }
+}
+
+@keyframes hideLoader {
+  100% {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+}
+
+.info {
+  max-width: 400px;
+  width: 400px;
+  height: calc(100vh - 110px);
+  padding-right: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: fixed;
+  right: 30px;
+  top: 60px;
+}
+
+.activityWrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  border: 1px rgb(235, 235, 235) solid;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.17);
+}
+
+.activity {
+  width: 100%;
+  height: 100%;
+  padding-top: 35px;
+  overflow-y: auto;
+  position: relative;
+}
+
+.activityTitle {
+  width: calc(100% - 50px);
+  height: 50px;
+  display: flex;
+  align-items: center;
+  background-color: white;
+  margin-bottom: 0;
+  position: absolute;
+  left: 20px;
+  top: 0;
+  z-index: 1;
+  font-weight: 500;
+}
+
+#feed {
+  width: 100%;
+  position: relative;
+  background-color: rgb(245, 245, 245);
+}
+
+#feed::before {
+  content: '';
+  width: 100%;
+  height: 50px;
+  position: absolute;
+  left: 0;
+  top: -40px;
+  background-color: white;
+}
+
+.gha-activity {
+  padding: 20px !important;
+}
+
+.gha-info,
+.gha-header,
+.gha-push {
+  display: none;
+}
+
+.theme {
+  margin: 0 auto 60px auto;
+  padding: 30px;
+  /*border: 2px black solid;*/
+}
+
+.title {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.row {
+  margin: 0 auto 30px 0;
+  width: 728px;
+  display: flex;
+  align-items: flex-start;
+}
+
+.row:last-of-type {
+  margin-bottom: 0;
+}
+
+.adBox {
+  margin-right: 30px;
+  position: relative;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.17);
+}
+
+.adBox:last-of-type {
+  margin-right: 0;
+}
+
+.inDev::before {
+  content: 'In development';
+  width: 100%;
+  height: calc(100% - 35px);
+  z-index: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: black;
+  font-size: 14px;
+}
+
+.ad {
+  width: 100%;
+  display: flex;
+  background-color: white;
+}
+
+.ad-240-400 {
+  width: 240px;
+  height: 400px;
+}
+
+.ad-300-300 {
+  width: 300px;
+  height: 300px;
+}
+
+.ad-728-90 {
+  width: 728px;
+  height: 90px;
+}
+
+.controls {
+  /*margin-top: 7px;*/
+  padding: 6px 5px 3px 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px lightgrey solid;
+  background-color: #ec5664;
+}
+
+button {
+  padding: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+button * {
+  pointer-events: none;
+}
+
+.play {
+  margin-right: 0px;
+}
+
+.playIcon {
+  height: 15px;
+}
+
+.pauseIcon {
+  height: 15px;
+}
+
+.serega {
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  color: #ec5664 !important;
+}
+
+.serega img {
+  position: absolute;
+  left: -20px;
+  top: -290px;
+  transform: translateY(300px) scale(0.3);
+  transition: transform 0.15s ease-out;
+}
+
+.serega:hover img {
+  transform: translateY(0);
+}
+
+.messageToSerega {
+  margin-top: 25px;
+  padding: 12px 25px;
+  background-color: #ec5664;
+  text-decoration: none;
+  color: white !important;
+  text-transform: uppercase;
+  font-size: 12px;
+  border-radius: 30px;
+  font-weight: 500;
+  position: relative;
+  box-shadow: 0 5px 20px rgba(236, 86, 100, 0.4);
+  /*display: none;*/
+}
+
+.messageToSerega::after {
+  content: '';
+  width: calc(100% + 40px);
+  height: 40px;
+  position: absolute;
+  left: -20px;
+  top: 39px;
+  /*background-color: white;*/
+}
+
+.octicon-git-commit {
+  display: none !important;
+  margin: 0 15px 0 0 !important;
+  width: auto !important;
+}
+
+.gha-time {
+  margin-bottom: 5px !important;
+}
+
+.gha-commits {
+  margin-top: 5px !important;
+}
+
+.gha-gravatar-commit,
+.gha-footer,
+.gha-push-small,
+.gha-activity-icon {
+  display: none !important;
+}
+
+.gha-message {
+  width: 100% !important;
+  font-size: 12px;
+}
+
+.gha-commits * {
+  font-size: 12px !important;
+}
+
+.gha-activity,
+.gha-feed {
+  border: none !important;
+}
