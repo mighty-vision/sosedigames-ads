@@ -1,7 +1,7 @@
 var adBox = document.querySelectorAll('.adBox');
 
 for(var i = 0; i < adBox.length; i++) {
-  var curentAd = addBox[i].firstElementChild.contentWindow.document.body;
+  var curentAd = adBox[i].firstElementChild.contentWindow.document.body;
 
   curentAd.classList.add('totalPause');
 }
