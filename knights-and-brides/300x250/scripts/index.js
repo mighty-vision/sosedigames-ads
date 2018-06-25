@@ -31,7 +31,7 @@ function throttle(func, limit) {
   }
 }
 
-var ad = document.querySelector('.ad');
+var ad = document.querySelector('.notAd');
 var adWidth = 240;
 var adHeight = 400;
 var interXPos = 0.001;

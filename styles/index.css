@@ -189,23 +189,23 @@ body {
   font-size: 14px;
 }
 
-.ad {
+.notAd {
   width: 100%;
   display: flex;
   background-color: white;
 }
 
-.ad-240-400 {
+.notAd-240-400 {
   width: 240px;
   height: 400px;
 }
 
-.ad-300-250 {
+.notAd-300-250 {
   width: 300px;
   height: 250px;
 }
 
-.ad-728-90 {
+.notAd-728-90 {
   width: 728px;
   height: 90px;
 }
