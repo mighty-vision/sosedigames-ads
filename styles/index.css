@@ -145,6 +145,7 @@ body {
 
 .title {
   font-size: 20px;
+  font-weight: 500;
   margin-bottom: 20px;
 }
 
@@ -207,7 +208,7 @@ body {
 
 .controls {
   /*margin-top: 7px;*/
-  padding: 9px 5px 5px 5px;
+  padding: 9px 5px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -228,38 +229,34 @@ button * {
   pointer-events: none;
 }
 
-.play {
-  margin-right: 0px;
+button {
+  width: 13px;
+  height: 13px;
+  position: relative;
+}
+
+button img {
+  position: absolute;
+  left: 0;
+  top: 0;
 }
 
 .played .play {
   display: none;
 }
 
-.playIcon {
-  height: 13px;
-}
-
-.played .pause {
-  display: block;
-  position: relative;
-  top: -0.5px;
-}
-
 .pause {
   display: none;
 }
 
-.pauseIcon {
-  height: 13px;
+.played .play {
+  display: block;
 }
 
 .reset {
   width: 13px;
   height: 13px;
-  margin-left: 5px;
-  position: relative;
-  top: -1.5px;
+  margin-left: 7px;
   background-color: white;
 }
 
