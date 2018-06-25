@@ -164,13 +164,13 @@ body {
   margin-bottom: 0;
 }
 
-.adBox {
+.notAdBox {
   margin-right: 30px;
   position: relative;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.17);
 }
 
-.adBox:last-of-type {
+.notAdBox:last-of-type {
   margin-right: 0;
 }
 
