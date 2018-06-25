@@ -50,7 +50,7 @@ body {
   width: 300px;
   will-change: filter;
   filter: drop-shadow(3px 3px 3px lightgrey);
-  animation: loaderAnim 0.6s infinite alternate;
+  animation: loaderAnim 0.4s infinite alternate;
 }
 
 @keyframes loaderAnim {
@@ -238,6 +238,8 @@ button * {
 
 .playIcon {
   height: 13px;
+  position: relative;
+    top: -0.5px;
 }
 
 .played .pause {

@@ -27,10 +27,10 @@ for(var i = 0; i < adBox.length; i++) {
     }
 
     if(e.target.classList.contains('reset')) {
-      currentAdBox.classList.add('resetAnim');
+      curentAd.classList.add('resetAnim');
 
       setTimeout( () => {
-        currentAdBox.classList.remove('resetAnim');
+        curentAd.classList.remove('resetAnim');
       }, 200);
     }
 
