@@ -2,11 +2,9 @@ var adBox = document.querySelectorAll('.adBox');
 
 function pauseAll() {
   for(var i = 0; i < adBox.length; i++) {
-    adBox[i].addEventListener('click', (e) => {
-      var curentAd = adBox[i].firstElementChild.contentWindow.document.body;
-      adBox[i].classList.remove('played');
-      curentAd[i].classList.add('totalPause');
-    });
+    var curentAd = adBox[i].firstElementChild.contentWindow.document.body;
+    adBox[i].classList.remove('played');
+    curentAd.classList.add('totalPause');
   }
 }
 

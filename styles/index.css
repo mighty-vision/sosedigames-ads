@@ -33,7 +33,6 @@ body {
   top: 0;
   z-index: 21123123;
   display: flex;
-  display: none;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -238,7 +237,7 @@ button * {
 }
 
 .playIcon {
-  height: 15px;
+  height: 13px;
 }
 
 .played .pause {
@@ -250,7 +249,7 @@ button * {
 }
 
 .pauseIcon {
-  height: 15px;
+  height: 13px;
 }
 
 .reset {
