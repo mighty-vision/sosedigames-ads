@@ -343,3 +343,8 @@ a {
 .gha-feed {
   border: none !important;
 }
+
+.gha-message-commits {
+  margin-top: 5px !important;
+  display: block !important;
+}
