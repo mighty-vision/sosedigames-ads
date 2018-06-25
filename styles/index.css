@@ -18,6 +18,25 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
+body.adblock {
+  position: relative;
+}
+
+body.adblock::after {
+  content: 'Please disable Adblock';
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 123123213123;
+  background-color: white;
+  font-size: 50px;
+}
+
 .ads {
   position: relative;
   display: flex;
