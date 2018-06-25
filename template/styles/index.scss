@@ -5,14 +5,12 @@
 //*** Basic styles ***//
 
 //*** Dev. Comment for production build ***//
-.addBody.totalPause {
-  // .ad {
-  //   overflow: visible !important;
-  // }
+.addBody. * {
+  animation-play-state: paused !important; 
+}
 
-  * {
-    animation-play-state: paused !important; 
-  }
+.addBody.resetAnim * {
+  animation: none !important;
 }
 
 
