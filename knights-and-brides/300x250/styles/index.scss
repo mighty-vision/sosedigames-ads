@@ -1,0 +1,625 @@
+///*** Libs ***///
+@import './reset';
+
+
+//*** Basic styles ***//
+
+//*** Dev. Comment for production build ***//
+.addBody.totalPause * {
+  animation-play-state: paused !important; 
+}
+
+.addBody.resetAnim * {
+  animation: none !important;
+}
+
+
+///*** Basic vars ***///
+
+// Sizes
+$widthAdd: 300px;
+$heightAdd: 250px;
+
+// Colors
+$colorBg: #ffdae3;
+$colorText: #951b58;
+
+// Timeline
+$timeTotal: 15;
+
+$frame-2-start: 2;
+$frame-2-anim-dur: 0.25;
+$frame-2-anim-pause: 2;
+
+$frame-3-start: $frame-2-start + $frame-2-anim-dur + $frame-2-anim-pause;
+$frame-3-anim-dur: 0.25;
+$frame-3-anim-pause: 3.55;
+
+$frame-4-start: $frame-3-start + $frame-3-anim-dur + $frame-3-anim-pause;
+$frame-4-anim-dur: 0.25;
+$frame-4-anim-pause: 3.55;
+
+$frame-5-start: $frame-4-start + $frame-4-anim-dur + $frame-4-anim-pause;
+$frame-5-anim-dur: 0.25;
+$frame-5-anim-pause: 1;
+
+// Font
+$font: 'Arial', sans-serif;
+
+
+///*** Ad ***///
+.ad {
+  width: $widthAdd;
+  height: $heightAdd;
+  overflow: hidden;
+  background-color: $colorBg;
+  cursor: pointer;
+  font-family: $font;
+  position: relative;
+
+  .parallax {
+    transition: transform 0.7s;
+  }
+
+  &:hover .parallax {
+    transition: transform 0.1s linear;
+  }
+  
+  --xMove: 0;
+  --yMove: 0;
+  
+  * {
+    pointer-events: none;
+    position: absolute;
+  }
+
+  .wrapper {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .characters {
+    left: 0;
+    top: -50px;
+  }
+  
+  .princeWrapper {
+    left: 0;
+    top: 0;
+    transform: translateX(calc(-10px * var(--xMove)))
+               translateY(calc(-7px * var(--yMove)));
+  }
+  
+  .prince {
+    width: 145px;
+    right: 7px;
+    bottom: -90px;
+    animation: hidePrince $timeTotal + s ease-out infinite;
+  }
+
+  @keyframes hidePrince {
+    #{percentage($frame-2-start / $timeTotal)} {
+      transform: translateX(0);
+      opacity: 1;
+    }
+
+    #{percentage(($frame-2-start + $frame-2-anim-dur) / $timeTotal)} {
+      transform: translateX(150px);
+      opacity: 0;
+    }
+
+    #{percentage(($frame-5-start) / $timeTotal)} {
+      transform: translateX(150px);
+      opacity: 0;
+    }
+
+    #{percentage(($frame-5-start + $frame-5-anim-dur) / $timeTotal)} {
+      transform: translateX(0);
+      opacity: 1;
+    }
+
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  .princesWrapper {
+    left: 0;
+    top: 0;
+    transform: translateX(calc(8px * var(--xMove)))
+               translateY(calc(5px * var(--yMove)));
+  }
+
+  .princes {
+    width: 128px;
+    left: 20px;
+    bottom: -80px;
+    animation: hidePrinces $timeTotal + s ease-out infinite;
+  }
+
+  @keyframes hidePrinces {
+    #{percentage($frame-2-start / $timeTotal)} {
+      transform: translateX(0);
+      opacity: 1;
+    }
+
+    #{percentage(($frame-2-start + $frame-2-anim-dur) / $timeTotal)} {
+      transform: translateX(-150px);
+      opacity: 0;
+    }
+
+    #{percentage(($frame-5-start) / $timeTotal)} {
+      transform: translateX(-150px);
+      opacity: 0;
+    }
+
+    #{percentage(($frame-5-start + $frame-5-anim-dur) / $timeTotal)} {
+      transform: translateX(0);
+      opacity: 1;
+    }
+
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  .logoWrapper {
+    left: 0;
+    top: 0;
+  }
+
+  .logo {
+    width: 138px;
+    height: auto;
+    left: 85px;
+    bottom: 77px;
+    animation: hideLogo $timeTotal + s cubic-bezier(0.175, 0.885, 0.465, 1.525) infinite;
+  }
+
+  @keyframes hideLogo {
+    #{percentage($frame-2-start / $timeTotal)} {
+      transform: none;
+      opacity: 1;
+    }
+
+    #{percentage($frame-2-start + $frame-2-anim-dur) / $timeTotal)} {
+      transform: translateY(100px) scale(0.5) rotateZ(10deg);
+      opacity: 0;
+    }
+
+    #{percentage(($frame-5-start) / $timeTotal)} {
+      transform: translateY(100px) scale(0.5) rotateZ(10deg);
+      opacity: 0;
+    }
+
+    #{percentage(($frame-5-start + 0.35) / $timeTotal)} {
+      transform: rotateZ(-10deg);
+      opacity: 1;
+    }
+
+    #{percentage(($frame-5-start + $frame-5-anim-dur + 0.45) / $timeTotal)} {
+      transform: rotateZ(0deg);
+    }
+
+    100% {
+      ransform: rotateZ(0deg);
+    }
+  }
+
+  .overClouds {
+    left: 0;
+    top: 0;
+    z-index: 1;
+  }
+
+  .cloudWrapper {
+    left: 0;
+    top: 0;
+  }
+
+  .cloud-1 {
+    left: -100px;
+    bottom: -200px;
+    opacity: 0;
+    animation: cloud1Anim $timeTotal + s linear infinite;
+  }
+
+  @keyframes cloud1Anim {
+    10% {
+      opacity: 1;
+    }
+
+    90% {
+      opacity: 1;
+      transform: translateX(450px) translateY(-300px);
+    }
+
+    100% {
+      opacity: 0;
+      transform: translateX(450px) translateY(-300px);
+    }
+  }
+
+  .cloud-2 {
+    left: -320px;
+    bottom: -120px;
+    opacity: 0;
+    animation: cloud2Anim $timeTotal + s linear infinite;
+  }
+
+  @keyframes cloud2Anim {
+    10% {
+      opacity: 1;
+    }
+
+    90% {
+      opacity: 1;
+      transform: translateX(450px) translateY(-200px);
+    }
+
+    100% {
+      opacity: 0;
+      transform: translateX(450px) translateY(-200px);
+    }
+  }
+
+  .cloud-3 {
+    left: -420px;
+    bottom: 0;
+    opacity: 0;
+    animation: cloud3Anim $timeTotal + s linear infinite;
+  }
+
+  @keyframes cloud3Anim {
+    10% {
+      opacity: 1;
+    }
+
+    90% {
+      opacity: 1;
+      transform: translateX(450px) translateY(0px);
+    }
+
+    100% {
+      opacity: 0;
+      transform: translateX(450px) translateY(0px);
+    }
+  }
+
+  .branches {
+    left: 0;
+    bottom: -20px;
+  }
+
+  .branch-1 {
+    width: 165px;
+    left: -30px;
+    bottom: 0;
+    transform: translateX(calc(20px * var(--xMove)))
+               translateY(calc(10px * var(--yMove)));
+  }
+
+  .branch-2 {
+    width: 140px;
+    height: 97px;
+    right: -20px;
+    bottom: 0;
+    transform: scaleX(-1) translateX(calc(-10px * var(--xMove)))
+               translateY(calc(5px * var(--yMove)));
+  }
+
+  .leaves {
+    left: 0;
+    top: 0;
+    animation: leavesAnim $timeTotal + s infinite;
+  }
+
+  @keyframes leavesAnim {
+    #{percentage(($frame-2-start) / $timeTotal)} {
+      transform: translateY(0) rotateZ(0deg);
+      opacity: 1;
+    }
+
+    #{percentage(($frame-2-start + 0.3) / $timeTotal)} {
+      transform: translateY(105%) rotateZ(15deg);
+      opacity: 0;
+    }
+
+    #{percentage(($frame-2-start + 0.4) / $timeTotal)} {
+      transform: translateY(-125%) rotateZ(15deg);
+    }
+
+    #{percentage(($frame-3-start) / $timeTotal)} {
+      transform: translateY(-125%) rotateZ(15deg);
+      opacity: 0;
+    }
+
+    #{percentage(($frame-3-start + 0.3) / $timeTotal)} {
+      transform: translateY(0) rotateZ(0);
+      opacity: 1;
+    }
+
+    #{percentage(($frame-4-start) / $timeTotal)} {
+      transform: translateY(0) rotateZ(0);
+      opacity: 1;
+    }
+
+    #{percentage(($frame-4-start + 0.3) / $timeTotal)} {
+      transform: translateY(125%) rotateZ(15deg);
+      opacity: 0;
+    }
+
+    #{percentage(($frame-4-start + 0.4) / $timeTotal)} {
+      transform: translateY(0) rotateZ(15deg);
+      opacity: 0;
+    }
+
+
+    #{percentage(($frame-5-start) / $timeTotal)} {
+      transform: translateY(0) rotateZ(15deg);
+      opacity: 0;
+    }
+
+    #{percentage(($frame-5-start + 0.3) / $timeTotal)} {
+      transform: translateY(0) rotateZ(0);
+      opacity: 1;
+    }
+
+    100% {
+      transform: translateY(0) rotateZ(0);
+      opacity: 1;
+    }
+  }
+
+  .leaf-1 {
+    left: 0px;
+    top: 80px;
+    transform: rotate(calc(30deg * (1 - var(--xMove) / 2)))
+               scale(0.9)
+               translateX(calc(10px * var(--xMove)))
+               translateY(calc(5px * var(--yMove)));
+  }
+
+  .leaf-2 {
+    right: 0px;
+    top: 40px;
+    filter: blur(1px);
+    transform: rotate(calc(-100deg * (1 - var(--xMove) / 20)))
+               scale(1.5)
+               translateX(calc(7px * var(--yMove) * -1))
+               translateY(calc(11px * var(--xMove)));
+  }
+
+  .leaf-3 {
+    right: -10px;
+    top: 220px;
+    transform: rotate(calc(-10deg * (1 - var(--xMove))))
+               translateX(calc(10px * var(--yMove)))
+               translateY(calc(5px * var(--xMove)));
+  }
+
+  .leaf-4 {
+    left: 110px;
+    top: -5px;
+    transform: scale(0.7)
+               rotate(calc(-10deg * (1 - var(--xMove))))
+               translateX(calc(10px * var(--yMove)))
+               translateY(calc(5px * var(--xMove)));
+  }
+
+  .leaves-2 {
+    left: 0;
+    top: -100%;
+    opacity: 0;
+    animation: leaves2Anim $timeTotal + s infinite;
+  }
+
+  @keyframes leaves2Anim {
+    #{percentage(($frame-2-start) / $timeTotal)} {
+      transform: translateY(0) rotateZ(2deg);
+      opacity: 0;
+    }
+
+    #{percentage(($frame-2-start + 0.3) / $timeTotal)} {
+      transform: translateY(105%) rotateZ(15deg);
+      opacity: 1;
+    }
+
+    #{percentage(($frame-3-start) / $timeTotal)} {
+      transform: translateY(105%) rotateZ(15deg);
+      opacity: 1;
+    }
+
+    #{percentage(($frame-3-start + 0.3) / $timeTotal)} {
+      transform: translateY(210%) rotateZ(15deg);
+      opacity: 0;
+    }
+
+    #{percentage(($frame-3-start + 0.4) / $timeTotal)} {
+      opacity: 0;
+    }
+
+    #{percentage(($frame-4-start) / $timeTotal)} {
+      transform: none;
+      opacity: 0;
+    }
+
+    #{percentage(($frame-4-start + 0.3) / $timeTotal)} {
+      transform: translateY(105%) rotateZ(15deg);
+      opacity: 1; 
+    }
+
+    #{percentage(($frame-5-start) / $timeTotal)} {
+      transform: translateY(105%) rotateZ(15deg);
+    }
+
+    #{percentage(($frame-5-start + 0.3) / $timeTotal)} {
+      transform: translateY(210%) rotateZ(15deg);
+    }
+
+    100% {
+      transform: translateY(210%) rotateZ(15deg);
+      opacity: 1;
+    }
+  }
+
+  .leaves-2 .leaf-1 {
+    left: 10px;
+    top: 100px;
+  }
+
+  .leaves-2 .leaf-2 {
+    right: 140px;
+    top: 0;
+  }
+
+  .leaves-2 .leaf-3 {
+    right: 40px;
+    top: 20px;
+  }
+
+  .leaves-2 .leaf-4 {
+    left: 140px;
+    top: 190px;
+    filter: blur(1px);
+    transform: scale(0.95)
+               rotate(calc(-10deg * (1 - var(--xMove))))
+               translateX(calc(10px * var(--yMove)))
+               translateY(calc(5px * var(--xMove)));
+  }
+
+  .leaves-2 .leaf-5 {
+    left: 10px;
+    top: 10px;
+    transform: scale(0.95)
+               rotate(calc(100deg * (1 - var(--xMove))))
+               translateX(calc(10px * var(--yMove)))
+               translateY(calc(5px * var(--xMove)));
+  }
+
+  .text {
+    left: 0;
+    top: 85px;
+    font-weight: bold;
+    text-align: center;
+    color: $colorText;
+    font-size: 22px;
+    
+    * {
+      width: 100%;
+    }
+  }
+
+  .text-1 {
+    transform: translateY(-110px);
+    left: 0;
+    top: 5px;
+    animation: textAnim1 $timeTotal + s ease-out infinite;
+    opacity: 0;
+  }
+
+  @keyframes textAnim1 {
+    #{percentage($frame-2-start / $timeTotal)} {
+      transform: translateY(-100px);
+      opacity: 0;
+    }
+
+    #{percentage(($frame-2-start + $frame-2-anim-dur) / $timeTotal)} {
+      transform: none;
+      opacity: 1;
+    }
+
+    #{percentage(($frame-3-start) / $timeTotal)} {
+      transform: none;
+      opacity: 1;
+    }
+
+    #{percentage(($frame-3-start + $frame-3-anim-dur) / $timeTotal)} {
+      transform: translateY(150px);
+      opacity: 0;
+    }
+
+    100% {
+      transform: translateY(150px);
+      opacity: 0;
+    }
+  }
+
+  .text-2 {
+    transform: translateY(-180px);
+    opacity: 0;
+    left: 0;
+    top: -10px;
+    animation: textAnim2 $timeTotal + s ease-out infinite;
+  }
+
+  @keyframes textAnim2 {
+    #{percentage(($frame-3-start) / $timeTotal)} {
+      transform: translateY(-180px);
+      opacity: 0;
+    }
+
+    #{percentage(($frame-3-start + $frame-3-anim-dur) / $timeTotal)} {
+      transform: none;
+      opacity: 1;
+    }
+
+    #{percentage(($frame-4-start) / $timeTotal)} {
+      transform: none;
+      opacity: 1;
+    }
+
+    #{percentage(($frame-4-start + $frame-4-anim-dur) / $timeTotal)} {
+      transform: translateY(150px);
+      opacity: 0;
+    }
+
+    100% {
+      transform: translateY(150px);
+      opacity: 0;
+    }
+  }
+
+  .text-3 {
+    transform: translateY(-190px);
+    left: 35px;
+    top: -23px;
+    opacity: 0;
+    animation: textAnim3 $timeTotal + s ease-out infinite;
+  }
+
+  @keyframes textAnim3 {
+    #{percentage(($frame-4-start) / $timeTotal)} {
+      transform: translateY(-190px);
+      opacity: 0;
+    }
+
+    #{percentage(($frame-4-start + $frame-4-anim-dur) / $timeTotal)} {
+      transform: none;
+      opacity: 1;
+    }
+
+    #{percentage(($frame-5-start) / $timeTotal)} {
+      transform: none;
+      opacity: 1;
+    }
+
+    #{percentage(($frame-5-start + $frame-5-anim-dur) / $timeTotal)} {
+      transform: translateY(135px);
+      opacity: 0;
+    }
+
+    100% {
+      transform: translateY(135px);
+      opacity: 0;
+    }
+  }
+
+  .sgLogo {
+    width: 141px;
+    position: absolute;
+    left: 50px;
+    top: 15px;  }
+}
