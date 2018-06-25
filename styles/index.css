@@ -127,6 +127,10 @@ body {
   background-color: white;
 }
 
+#feed * {
+  font-size: 12px !important;
+}
+
 .gha-activity {
   padding: 20px !important;
 }
@@ -250,7 +254,7 @@ button img {
 }
 
 .played .pause {
-  display: block;
+  display: inline-block;
 }
 
 .reset {
