@@ -21,11 +21,11 @@ $widthAdd: 300px;
 $heightAdd: 250px;
 
 // Colors
-$colorBg: #ffdae3;
+$bg: linear-gradient(to right, #ffdae3, #ffe7ed);
 $colorText: #951b58;
 
 // Timeline
-$timeTotal: 15;
+$timeTotal: 11;
 
 $frame-2-start: 2;
 $frame-2-anim-dur: 0.3;
@@ -33,16 +33,17 @@ $frame-2-anim-pause: 2;
 
 $frame-3-start: $frame-2-start + $frame-2-anim-dur + $frame-2-anim-pause;
 $frame-3-anim-dur: 0.3;
-$frame-3-anim-pause: 3.55;
+$frame-3-anim-pause: 2;
 
 $frame-4-start: $frame-3-start + $frame-3-anim-dur + $frame-3-anim-pause;
 $frame-4-anim-dur: 0.3;
-$frame-4-anim-pause: 3.55;
+$frame-4-anim-pause: 2;
 
 $frame-5-start: $frame-4-start + $frame-4-anim-dur + $frame-4-anim-pause;
 $frame-5-anim-dur: 0.25;
 $frame-5-anim-pause: 1;
 
+$text-dur: 0.4;
 $text-delay: 0.07;
 
 // Font
@@ -54,10 +55,12 @@ $font: 'Arial', sans-serif;
   width: $widthAdd;
   height: $heightAdd;
   overflow: hidden;
-  background-color: $colorBg;
+  background: $bg;
   cursor: pointer;
   font-family: $font;
   position: relative;
+  // left: 1500px;
+  // top: 1000px;
 
   .parallax {
     transition: transform 0.7s;
@@ -218,76 +221,86 @@ $font: 'Arial', sans-serif;
 
   .cloudWrapper {
     left: 0;
-    top: 0;
+    top: 50px;
+    animation: cloudWrapperAnim $timeTotal * 3 + s linear,
+               cloudWrapperTranslate $timeTotal * 3 + s linear forwards;
+  }
+
+  @keyframes cloudWrapperAnim {
+    99% {
+      transform: translateX(870px);
+      opacity: 1;
+    }
+
+    99.1% {
+      opacity: 0;
+      transform: translateX(0px);
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes cloudWrapperTranslate {
+    99.1% {
+      left: 0;
+    }
+
+    100% {
+      left: -270px;
+    }
+  }
+
+  .cloudTranslate {
+    animation: cloudWrapperTranslate2 $timeTotal * 3 + s $timeTotal * 3 + s linear infinite;
+  }
+
+  @keyframes cloudWrapperTranslate2 {
+    99% {
+      transform: translateX(1200px);
+      opacity: 1;
+    }
+
+    99.03% {
+      opacity: 0;
+      transform: translateX(0px);
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+
+  .cloudWrapper2 {
+    // border: 1px solid;
+    left: -230px;
+    top: 10px;
+    animation: cloudAnim2 $timeTotal * 3 + s $timeTotal * 3 / 1.65 + s linear infinite;
+  }
+
+  @keyframes cloudAnim2 {
+    100% {
+      transform: translateX(1150px);
+    }
   }
 
   .cloud-1 {
     left: -100px;
-    bottom: -220px;
-    opacity: 0;
-    animation: cloud1Anim $timeTotal + s linear infinite;
-  }
-
-  @keyframes cloud1Anim {
-    10% {
-      opacity: 1;
-    }
-
-    90% {
-      opacity: 1;
-      transform: translateX(450px) translateY(0);
-    }
-
-    100% {
-      opacity: 0;
-      transform: translateX(450px) translateY(0);
-    }
+    bottom: -120px;
+    // border: 1px red solid;
   }
 
   .cloud-2 {
-    left: -320px;
-    bottom: -170px;
-    opacity: 0;
-    animation: cloud2Anim $timeTotal + s linear infinite;
-  }
-
-  @keyframes cloud2Anim {
-    10% {
-      opacity: 1;
-    }
-
-    90% {
-      opacity: 1;
-      transform: translateX(450px) translateY(0);
-    }
-
-    100% {
-      opacity: 0;
-      transform: translateX(450px) translateY(0);
-    }
+    left: -380px;
+    bottom: -90px;
+    // border: 1px green solid;
   }
 
   .cloud-3 {
-    left: -420px;
-    bottom: -130px;
-    opacity: 0;
-    animation: cloud3Anim $timeTotal + s linear infinite;
-  }
-
-  @keyframes cloud3Anim {
-    10% {
-      opacity: 1;
-    }
-
-    90% {
-      opacity: 1;
-      transform: translateX(450px) translateY(0px);
-    }
-
-    100% {
-      opacity: 0;
-      transform: translateX(450px) translateY(0px);
-    }
+    left: -600px;
+    bottom: -100px;
+    // border: 1px yellow solid;
   }
 
   .branches {
@@ -405,10 +418,10 @@ $font: 'Arial', sans-serif;
   .leaf-4 {
     left: 110px;
     top: -5px;
-    transform: scale(0.7)
+    transform: scale(0.6)
                rotate(calc(-10deg * (1 - var(--xMove))))
-               translateX(calc(13px * var(--xMove)))
-               translateY(calc(12px * var(--yMove)));
+               translateX(calc(7px * var(--xMove)))
+               translateY(calc(7px * var(--yMove)));
   }
 
   .leaves-2 {
@@ -470,6 +483,10 @@ $font: 'Arial', sans-serif;
   .leaves-2 .leaf-1 {
     left: 10px;
     top: 100px;
+    transform: rotate(calc(30deg * (1 - var(--xMove) / 2)))
+               scale(0.65)
+               translateX(calc(10px * var(--xMove)))
+               translateY(calc(5px * var(--yMove)));
   }
 
   .leaves-2 .leaf-2 {
@@ -480,7 +497,8 @@ $font: 'Arial', sans-serif;
   .leaves-2 .leaf-3 {
     right: 40px;
     top: 20px;
-    transform: rotate(calc(-10deg * (1 - var(--xMove))))
+    transform: scale(1.015)
+               rotate(calc(-10deg * (1 - var(--xMove))))
                translateX(calc(10px * var(--xMove)))
                translateY(calc(10px * var(--yMove)));
   }
@@ -489,7 +507,7 @@ $font: 'Arial', sans-serif;
     left: 140px;
     top: 190px;
     filter: blur(1px);
-    transform: scale(1.05)
+    transform: scale(1.25)
                rotate(calc(-10deg * (1 - var(--xMove))))
                translateX(calc(15px * var(--xMove)))
                translateY(calc(17px * var(--yMove)));
@@ -499,9 +517,9 @@ $font: 'Arial', sans-serif;
     left: 10px;
     top: 25px;
     transform: scale(0.95)
-               rotate(calc(20deg * (1 - var(--xMove))))
+               rotate(calc(-20deg * (1 - var(--xMove))))
                translateX(calc(13px * var(--xMove)))
-               translateY(calc(-12px * var(--yMove)));
+               translateY(calc(10px * var(--yMove)));
   }
 
   .text {
@@ -531,7 +549,7 @@ $font: 'Arial', sans-serif;
       opacity: 0;
     }
 
-    #{percentage(($frame-2-start + $frame-2-anim-dur + $text-delay) / $timeTotal)} {
+    #{percentage(($frame-2-start + $text-dur + $text-delay) / $timeTotal)} {
       transform: none;
       opacity: 1;
     }
@@ -566,7 +584,7 @@ $font: 'Arial', sans-serif;
       opacity: 0;
     }
 
-    #{percentage(($frame-3-start + $frame-3-anim-dur + $text-delay) / $timeTotal)} {
+    #{percentage(($frame-3-start + $text-dur + $text-delay) / $timeTotal)} {
       transform: none;
       opacity: 1;
     }
@@ -601,7 +619,7 @@ $font: 'Arial', sans-serif;
       opacity: 0;
     }
 
-    #{percentage(($frame-4-start + $frame-4-anim-dur + $text-delay) / $timeTotal)} {
+    #{percentage(($frame-4-start + $text-dur + $text-delay) / $timeTotal)} {
       transform: none;
       opacity: 1;
     }

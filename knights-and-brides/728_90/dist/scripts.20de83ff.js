@@ -164,7 +164,7 @@ function reloadCSS() {
 }
 
 module.exports = reloadCSS;
-},{"./bundle-url":45}],39:[function(require,module,exports) {
+},{"./bundle-url":45}],24:[function(require,module,exports) {
 
 var reloadCSS = require('_css_loader');
 module.hot.dispose(reloadCSS);
@@ -252,18 +252,18 @@ var translateLayers = {
 translateLayers.init();
 
 //*** Dev. Comment for production build ***//
-// var paused = false;
+var paused = false;
 
-// document.addEventListener('click', () => {
-//   paused = !paused;
+document.addEventListener('click', function () {
+  paused = !paused;
 
-//   if(paused) {
-//     document.body.classList.add('totalPause');
-//   } else {
-//     document.body.classList.remove('totalPause');
-//   }
-// });
-},{"./../styles/index.scss":39}],13:[function(require,module,exports) {
+  if (paused) {
+    document.body.classList.add('totalPause');
+  } else {
+    document.body.classList.remove('totalPause');
+  }
+});
+},{"./../styles/index.scss":24}],30:[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 
@@ -292,7 +292,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '57138' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '59906' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 
@@ -433,5 +433,5 @@ function hmrAccept(bundle, id) {
     return hmrAccept(global.parcelRequire, id);
   });
 }
-},{}]},{},[13,23], null)
+},{}]},{},[30,23], null)
 //# sourceMappingURL=/scripts.20de83ff.map
