@@ -1,4 +1,4 @@
-var adBox = document.querySelectorAll('.adBox');
+var adBox = document.querySelectorAll('.notAdBox');
 
 function pauseAll() {
   for(var i = 0; i < adBox.length; i++) {
