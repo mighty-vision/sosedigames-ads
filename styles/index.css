@@ -58,7 +58,6 @@ body.adblock::after {
   background-color: #f7f7f7;
   animation: hideLoader 0.25s 3s forwards;
   pointer-events: none;
-  display: none;
 }
 
 .loadTitle {
