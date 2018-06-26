@@ -17,8 +17,8 @@
 ///*** Basic vars ***///
 
 // Sizes
-$widthAdd: 300px;
-$heightAdd: 250px;
+$widthAdd: 240px;
+$heightAdd: 400px;
 
 // Colors
 $colorBg: #ffdae3;
@@ -28,22 +28,20 @@ $colorText: #951b58;
 $timeTotal: 15;
 
 $frame-2-start: 2;
-$frame-2-anim-dur: 0.3;
+$frame-2-anim-dur: 0.25;
 $frame-2-anim-pause: 2;
 
 $frame-3-start: $frame-2-start + $frame-2-anim-dur + $frame-2-anim-pause;
-$frame-3-anim-dur: 0.3;
+$frame-3-anim-dur: 0.25;
 $frame-3-anim-pause: 3.55;
 
 $frame-4-start: $frame-3-start + $frame-3-anim-dur + $frame-3-anim-pause;
-$frame-4-anim-dur: 0.3;
+$frame-4-anim-dur: 0.25;
 $frame-4-anim-pause: 3.55;
 
 $frame-5-start: $frame-4-start + $frame-4-anim-dur + $frame-4-anim-pause;
 $frame-5-anim-dur: 0.25;
 $frame-5-anim-pause: 1;
-
-$text-delay: 0.07;
 
 // Font
 $font: 'Arial', sans-serif;
@@ -88,82 +86,142 @@ $font: 'Arial', sans-serif;
   .princeWrapper {
     left: 0;
     top: 0;
-    transform: translateX(calc(10px * var(--xMove)))
-               translateY(calc(7px * var(--yMove)));
+    transform: translateX(calc(-10px * var(--xMove)))
+               translateY(calc(-7px * var(--yMove)));
   }
   
   .prince {
-    width: 145px;
-    right: 7px;
-    bottom: -90px;
+    width: 219px;
+    left: 47px;
+    transform: scale(#{(128 / 186)});
     animation: hidePrince $timeTotal + s ease-out infinite;
   }
 
   @keyframes hidePrince {
     #{percentage($frame-2-start / $timeTotal)} {
-      transform: translateX(0);
+      transform: scale(#{(128 / 186)});
       opacity: 1;
     }
 
     #{percentage(($frame-2-start + $frame-2-anim-dur) / $timeTotal)} {
-      transform: translateX(150px);
+      transform: scale(#{(128 / 186)})
+                 translateX(235px);
       opacity: 0;
+    }
+
+    #{percentage(($frame-2-start + $frame-2-anim-dur) / $timeTotal + 0.001)} {
+      transform: scale(1)
+                 translateX(195px)
+                 translateY(187px);
+    }
+
+    #{percentage(($frame-3-start) / $timeTotal)} {
+      transform: scale(1)
+                 translateX(195px)
+                 translateY(187px);
+      opacity: 0;
+    }
+
+    #{percentage(($frame-3-start + $frame-3-anim-dur) / $timeTotal)} {
+      transform: scale(1)
+                 translateX(-30px)
+                 translateY(187px);
+      opacity: 1;
+    }
+
+    #{percentage(($frame-4-start) / $timeTotal)} {
+      transform: scale(1)
+                 translateX(-30px)
+                 translateY(187px);
+    }
+
+    #{percentage(($frame-4-start + $frame-4-anim-dur) / $timeTotal)} {
+      transform: scale(#{(128 / 186)})
+                 translateX(20px)
+                 translateY(187px);
     }
 
     #{percentage(($frame-5-start) / $timeTotal)} {
-      transform: translateX(150px);
-      opacity: 0;
+      transform: scale(#{(128 / 186)})
+                 translateX(20px)
+                 translateY(187px);
     }
 
     #{percentage(($frame-5-start + $frame-5-anim-dur) / $timeTotal)} {
-      transform: translateX(0);
-      opacity: 1;
+      transform: scale(#{(128 / 186)});
     }
 
     100% {
-      transform: translateX(0);
-      opacity: 1;
+      transform: scale(#{(128 / 186)});
     }
   }
 
   .princesWrapper {
     left: 0;
     top: 0;
-    transform: translateX(calc(5px * var(--xMove)))
-               translateY(calc(3px * var(--yMove)));
+    transform: translateX(calc(8px * var(--xMove)))
+               translateY(calc(5px * var(--yMove)));
   }
 
   .princes {
-    width: 128px;
-    left: 20px;
-    bottom: -80px;
-    animation: hidePrinces $timeTotal + s ease-out infinite;
+    width: 186px;
+    left: -17px;
+    top: 27px;
+    transform: scale(#{(128 / 186)});
+    animation: scalePrinces $timeTotal + s ease-out infinite;
   }
 
-  @keyframes hidePrinces {
+  @keyframes scalePrinces {
     #{percentage($frame-2-start / $timeTotal)} {
-      transform: translateX(0);
-      opacity: 1;
+      transform: scale(#{(128 / 186)});
     }
 
     #{percentage(($frame-2-start + $frame-2-anim-dur) / $timeTotal)} {
-      transform: translateX(-150px);
+      transform: scale(1)
+                 translateX(50px)
+                 translateY(155px);
+    }
+
+    #{percentage(($frame-3-start) / $timeTotal)} {
+      transform: scale(1)
+                 translateX(50px)
+                 translateY(155px);
+      opacity: 1;
+    }
+
+    #{percentage(($frame-3-start + $frame-3-anim-dur) / $timeTotal)} {
+      transform: scale(1)
+                 translateX(-150px)
+                 translateY(155px);
       opacity: 0;
+    }
+
+    #{percentage(($frame-4-start) / $timeTotal)} {
+      transform: scale(1)
+                 translateX(-150px)
+                 translateY(165px);
+      opacity: 0;
+    }
+
+    #{percentage(($frame-4-start + $frame-4-anim-dur) / $timeTotal)} {
+      transform: scale(#{(128 / 186)})
+                 translateX(-10px)
+                 translateY(165px);
+      opacity: 1;
     }
 
     #{percentage(($frame-5-start) / $timeTotal)} {
-      transform: translateX(-150px);
-      opacity: 0;
+      transform: scale(#{(128 / 186)})
+                 translateX(-10px)
+                 translateY(165px);
     }
 
     #{percentage(($frame-5-start + $frame-5-anim-dur) / $timeTotal)} {
-      transform: translateX(0);
-      opacity: 1;
+      transform: scale(#{(128 / 186)});
     }
 
     100% {
-      transform: translateX(0);
-      opacity: 1;
+      transform: scale(#{(128 / 186)});
     }
   }
 
@@ -173,10 +231,8 @@ $font: 'Arial', sans-serif;
   }
 
   .logo {
-    width: 138px;
-    height: auto;
-    left: 85px;
-    bottom: 77px;
+    left: 35px;
+    bottom: 45px;
     animation: hideLogo $timeTotal + s cubic-bezier(0.175, 0.885, 0.465, 1.525) infinite;
   }
 
@@ -187,12 +243,12 @@ $font: 'Arial', sans-serif;
     }
 
     #{percentage($frame-2-start + $frame-2-anim-dur) / $timeTotal)} {
-      transform: translateY(100px) scale(0.5) rotateZ(10deg);
+      transform: translateY(200px) scale(0.5) rotateZ(10deg);
       opacity: 0;
     }
 
     #{percentage(($frame-5-start) / $timeTotal)} {
-      transform: translateY(100px) scale(0.5) rotateZ(10deg);
+      transform: translateY(200px) scale(0.5) rotateZ(10deg);
       opacity: 0;
     }
 
@@ -223,7 +279,7 @@ $font: 'Arial', sans-serif;
 
   .cloud-1 {
     left: -100px;
-    bottom: -220px;
+    bottom: -200px;
     opacity: 0;
     animation: cloud1Anim $timeTotal + s linear infinite;
   }
@@ -235,18 +291,18 @@ $font: 'Arial', sans-serif;
 
     90% {
       opacity: 1;
-      transform: translateX(450px) translateY(0);
+      transform: translateX(450px) translateY(-300px);
     }
 
     100% {
       opacity: 0;
-      transform: translateX(450px) translateY(0);
+      transform: translateX(450px) translateY(-300px);
     }
   }
 
   .cloud-2 {
     left: -320px;
-    bottom: -170px;
+    bottom: -120px;
     opacity: 0;
     animation: cloud2Anim $timeTotal + s linear infinite;
   }
@@ -258,18 +314,18 @@ $font: 'Arial', sans-serif;
 
     90% {
       opacity: 1;
-      transform: translateX(450px) translateY(0);
+      transform: translateX(450px) translateY(-200px);
     }
 
     100% {
       opacity: 0;
-      transform: translateX(450px) translateY(0);
+      transform: translateX(450px) translateY(-200px);
     }
   }
 
   .cloud-3 {
     left: -420px;
-    bottom: -130px;
+    bottom: 0;
     opacity: 0;
     animation: cloud3Anim $timeTotal + s linear infinite;
   }
@@ -315,63 +371,45 @@ $font: 'Arial', sans-serif;
   .leaves {
     left: 0;
     top: 0;
+    transform: rotateZ(2deg);
     animation: leavesAnim $timeTotal + s infinite;
   }
 
   @keyframes leavesAnim {
     #{percentage(($frame-2-start) / $timeTotal)} {
-      transform: translateY(0) rotateZ(0deg);
-      opacity: 1;
+      transform: translateY(0) rotateZ(2deg);
     }
 
     #{percentage(($frame-2-start + 0.3) / $timeTotal)} {
-      transform: translateY(105%) rotateZ(15deg);
-      opacity: 0;
-    }
-
-    #{percentage(($frame-2-start + 0.4) / $timeTotal)} {
-      transform: translateY(-125%) rotateZ(15deg);
+      transform: translateY(10px) scale(0.9) rotateZ(5deg);
     }
 
     #{percentage(($frame-3-start) / $timeTotal)} {
-      transform: translateY(-125%) rotateZ(15deg);
-      opacity: 0;
+      transform: translateY(10px) scale(0.9) rotateZ(5deg);
     }
 
     #{percentage(($frame-3-start + 0.3) / $timeTotal)} {
-      transform: translateY(0) rotateZ(0);
-      opacity: 1;
+      transform: rotateZ(2deg) translateY(-10px) translateX(-10px) rotateZ(-2deg);
     }
 
     #{percentage(($frame-4-start) / $timeTotal)} {
-      transform: translateY(0) rotateZ(0);
-      opacity: 1;
+      transform: rotateZ(2deg) translateY(-10px) translateX(-10px) rotateZ(-2deg);
     }
 
     #{percentage(($frame-4-start + 0.3) / $timeTotal)} {
-      transform: translateY(125%) rotateZ(15deg);
-      opacity: 0;
+      transform: rotateZ(2deg) translateY(0px) translateX(0) scale(0.9);
     }
-
-    #{percentage(($frame-4-start + 0.4) / $timeTotal)} {
-      transform: translateY(0) rotateZ(15deg);
-      opacity: 0;
-    }
-
 
     #{percentage(($frame-5-start) / $timeTotal)} {
-      transform: translateY(0) rotateZ(15deg);
-      opacity: 0;
+      transform: rotateZ(2deg) translateY(0px) translateX(0) scale(0.9);
     }
 
-    #{percentage(($frame-5-start + 0.3) / $timeTotal)} {
-      transform: translateY(0) rotateZ(0);
-      opacity: 1;
+    #{percentage(($frame-5-start + 0.1) / $timeTotal)} {
+      transform: rotateZ(2deg);
     }
 
     100% {
-      transform: translateY(0) rotateZ(0);
-      opacity: 1;
+      transform: rotateZ(2deg);
     }
   }
 
@@ -390,123 +428,21 @@ $font: 'Arial', sans-serif;
     filter: blur(1px);
     transform: rotate(calc(-100deg * (1 - var(--xMove) / 20)))
                scale(1.5)
-               translateX(calc(15px * var(--yMove) * -1))
-               translateY(calc(15px * var(--xMove)));
+               translateX(calc(7px * var(--yMove) * -1))
+               translateY(calc(11px * var(--xMove)));
   }
 
   .leaf-3 {
     right: -10px;
     top: 220px;
     transform: rotate(calc(-10deg * (1 - var(--xMove))))
-               translateX(calc(10px * var(--xMove)))
-               translateY(calc(5px * var(--yMove)));
-  }
-
-  .leaf-4 {
-    left: 110px;
-    top: -5px;
-    transform: scale(0.7)
-               rotate(calc(-10deg * (1 - var(--xMove))))
-               translateX(calc(13px * var(--xMove)))
-               translateY(calc(12px * var(--yMove)));
-  }
-
-  .leaves-2 {
-    left: 0;
-    top: -100%;
-    opacity: 0;
-    animation: leaves2Anim $timeTotal + s infinite;
-  }
-
-  @keyframes leaves2Anim {
-    #{percentage(($frame-2-start) / $timeTotal)} {
-      transform: translateY(0) rotateZ(2deg);
-      opacity: 0;
-    }
-
-    #{percentage(($frame-2-start + 0.3) / $timeTotal)} {
-      transform: translateY(105%) rotateZ(15deg);
-      opacity: 1;
-    }
-
-    #{percentage(($frame-3-start) / $timeTotal)} {
-      transform: translateY(105%) rotateZ(15deg);
-      opacity: 1;
-    }
-
-    #{percentage(($frame-3-start + 0.3) / $timeTotal)} {
-      transform: translateY(210%) rotateZ(15deg);
-      opacity: 0;
-    }
-
-    #{percentage(($frame-3-start + 0.4) / $timeTotal)} {
-      opacity: 0;
-    }
-
-    #{percentage(($frame-4-start) / $timeTotal)} {
-      transform: none;
-      opacity: 0;
-    }
-
-    #{percentage(($frame-4-start + 0.3) / $timeTotal)} {
-      transform: translateY(105%) rotateZ(15deg);
-      opacity: 1; 
-    }
-
-    #{percentage(($frame-5-start) / $timeTotal)} {
-      transform: translateY(105%) rotateZ(15deg);
-    }
-
-    #{percentage(($frame-5-start + 0.3) / $timeTotal)} {
-      transform: translateY(210%) rotateZ(15deg);
-    }
-
-    100% {
-      transform: translateY(210%) rotateZ(15deg);
-      opacity: 1;
-    }
-  }
-
-  .leaves-2 .leaf-1 {
-    left: 10px;
-    top: 100px;
-  }
-
-  .leaves-2 .leaf-2 {
-    right: 140px;
-    top: 0;
-  }
-
-  .leaves-2 .leaf-3 {
-    right: 40px;
-    top: 20px;
-    transform: rotate(calc(-10deg * (1 - var(--xMove))))
-               translateX(calc(10px * var(--xMove)))
-               translateY(calc(10px * var(--yMove)));
-  }
-
-  .leaves-2 .leaf-4 {
-    left: 140px;
-    top: 190px;
-    filter: blur(1px);
-    transform: scale(1.05)
-               rotate(calc(-10deg * (1 - var(--xMove))))
-               translateX(calc(15px * var(--xMove)))
-               translateY(calc(17px * var(--yMove)));
-  }
-
-  .leaves-2 .leaf-5 {
-    left: 10px;
-    top: 25px;
-    transform: scale(0.95)
-               rotate(calc(20deg * (1 - var(--xMove))))
-               translateX(calc(13px * var(--xMove)))
-               translateY(calc(-12px * var(--yMove)));
+               translateX(calc(10px * var(--yMove)))
+               translateY(calc(5px * var(--xMove)));
   }
 
   .text {
     left: 0;
-    top: 85px;
+    top: 27px;
     font-weight: bold;
     text-align: center;
     color: $colorText;
@@ -519,19 +455,17 @@ $font: 'Arial', sans-serif;
 
   .text-1 {
     transform: translateY(-110px);
-    left: 0;
-    top: 5px;
-    animation: textAnim1 $timeTotal + s ease infinite;
+    animation: textAnim1 $timeTotal + s ease-out infinite;
     opacity: 0;
   }
 
   @keyframes textAnim1 {
-    #{percentage(($frame-2-start + $text-delay) / $timeTotal)} {
+    #{percentage($frame-2-start / $timeTotal)} {
       transform: translateY(-100px);
       opacity: 0;
     }
 
-    #{percentage(($frame-2-start + $frame-2-anim-dur + $text-delay) / $timeTotal)} {
+    #{percentage(($frame-2-start + $frame-2-anim-dur) / $timeTotal)} {
       transform: none;
       opacity: 1;
     }
@@ -542,31 +476,29 @@ $font: 'Arial', sans-serif;
     }
 
     #{percentage(($frame-3-start + $frame-3-anim-dur) / $timeTotal)} {
-      transform: translateY(150px);
+      transform: translateX(-100px);
       opacity: 0;
     }
 
     100% {
-      transform: translateY(150px);
+      transform: translateY(-100px);
       opacity: 0;
     }
   }
 
   .text-2 {
-    transform: translateY(-180px);
+    transform: translateX(100%);
     opacity: 0;
-    left: 0;
-    top: -10px;
-    animation: textAnim2 $timeTotal + s ease infinite;
+    animation: textAnim2 $timeTotal + s ease-out infinite;
   }
 
   @keyframes textAnim2 {
-    #{percentage(($frame-3-start + $text-delay) / $timeTotal)} {
-      transform: translateY(-180px);
+    #{percentage(($frame-3-start) / $timeTotal)} {
+      transform: translateX(100%);
       opacity: 0;
     }
 
-    #{percentage(($frame-3-start + $frame-3-anim-dur + $text-delay) / $timeTotal)} {
+    #{percentage(($frame-3-start + $frame-3-anim-dur) / $timeTotal)} {
       transform: none;
       opacity: 1;
     }
@@ -577,31 +509,29 @@ $font: 'Arial', sans-serif;
     }
 
     #{percentage(($frame-4-start + $frame-4-anim-dur) / $timeTotal)} {
-      transform: translateY(150px);
+      transform: translateX(-100%);
       opacity: 0;
     }
 
     100% {
-      transform: translateY(150px);
+      transform: translateX(-100%);
       opacity: 0;
     }
   }
 
   .text-3 {
-    transform: translateY(-190px);
-    left: 35px;
-    top: -23px;
+    transform: translateX(100%);
     opacity: 0;
-    animation: textAnim3 $timeTotal + s ease infinite;
+    animation: textAnim3 $timeTotal + s ease-out infinite;
   }
 
   @keyframes textAnim3 {
-    #{percentage(($frame-4-start + $text-delay) / $timeTotal)} {
-      transform: translateY(-190px);
+    #{percentage(($frame-4-start) / $timeTotal)} {
+      transform: translateX(100%);
       opacity: 0;
     }
 
-    #{percentage(($frame-4-start + $frame-4-anim-dur + $text-delay) / $timeTotal)} {
+    #{percentage(($frame-4-start + $frame-4-anim-dur) / $timeTotal)} {
       transform: none;
       opacity: 1;
     }
@@ -612,12 +542,12 @@ $font: 'Arial', sans-serif;
     }
 
     #{percentage(($frame-5-start + $frame-5-anim-dur) / $timeTotal)} {
-      transform: translateY(135px);
+      transform: translateY(-100px);
       opacity: 0;
     }
 
     100% {
-      transform: translateY(135px);
+      transform: translateY(-100px);
       opacity: 0;
     }
   }
