@@ -1,0 +1,455 @@
+///*** Libs ***///
+@import './reset';
+
+
+//*** Basic styles ***//
+
+//*** Dev. Comment for production build ***//
+.addBody.totalPause * {
+  animation-play-state: paused !important; 
+}
+
+.addBody.resetAnim * {
+  animation: none !important;
+}
+
+
+///*** Basic vars ***///
+
+// Sizes
+$widthAdd: 240px;
+$heightAdd: 400px;
+
+// Colors
+$colorText: #3c5f99;
+
+// Timeline
+$timeTotal: 11;
+
+$frame-2-start: 2;
+$frame-2-anim-dur: 0.3;
+$frame-2-anim-pause: 2;
+
+$frame-3-start: $frame-2-start + $frame-2-anim-dur + $frame-2-anim-pause;
+$frame-3-anim-dur: 0.3;
+$frame-3-anim-pause: 2;
+
+$frame-4-start: $frame-3-start + $frame-3-anim-dur + $frame-3-anim-pause;
+$frame-4-anim-dur: 0.3;
+$frame-4-anim-pause: 2;
+
+$frame-5-start: $frame-4-start + $frame-4-anim-dur + $frame-4-anim-pause;
+$frame-5-anim-dur: 0.25;
+$frame-5-anim-pause: 1;
+
+$text-dur: 0.3;
+$text-delay: 0.07;
+
+// Font
+$font: 'Arial', sans-serif;
+
+
+///*** Ad ***///
+.notAd {
+  width: $widthAdd;
+  height: $heightAdd;
+  // overflow: hidden;
+  cursor: pointer;
+  font-family: $font;
+  position: relative;
+  left: 500px;
+  top: 150px;
+
+  .parallax {
+    transition: transform 0.7s;
+  }
+
+  &:hover .parallax {
+    transition: transform 0.1s linear;
+  }
+  
+  --xMove: 0;
+  --yMove: 0;
+  
+  * {
+    pointer-events: none;
+  }
+
+  *:not(br) {
+    position: absolute;
+  }
+
+  .wrapper {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .characters {
+    left: 0;
+    top: 0;
+  }
+
+  .overClouds {
+    z-index: 1;
+    border: 1px solid;
+  }
+
+  .manWrapper {
+    
+  }
+
+  .man {
+    left: 36px;
+    top: 128px;
+    z-index: 1;
+    // transform: translateX(-143px);
+    // transform: translateX(205px);
+    animation: man $timeTotal + s ease-out infinite;
+  }
+
+  @keyframes man {
+    #{percentage($frame-2-start / $timeTotal)} {
+      transform: none;
+    }
+
+    #{percentage(($frame-2-start + $frame-2-anim-dur) / $timeTotal)} {
+      transform: translateX(-143px);
+    }
+
+    #{percentage(($frame-2-start + $frame-2-anim-dur + 0.01) / $timeTotal)} {
+      transform: translateX(205px);
+    }
+
+    #{percentage(($frame-3-start) / $timeTotal)} {
+      transform: translateX(205px);
+    }
+
+    #{percentage(($frame-3-start + $frame-4-anim-dur) / $timeTotal)} {
+      transform: translateX(60px);
+    }
+
+    #{percentage(($frame-4-start) / $timeTotal)} {
+      transform: translateX(60px);
+    }
+
+    #{percentage(($frame-4-start + $frame-5-anim-dur) / $timeTotal)} {
+      transform: none;
+    }
+
+    100% {
+      transform: none;
+    }
+  }
+
+  .girlWrapper {
+    
+  }
+
+  .girl {
+    right: 25px;
+    top: 131px;
+    // transform: translateX(-215px);
+    // transform: translateX(137px);
+    animation: girl $timeTotal + s ease-out infinite;
+  }
+
+  @keyframes girl {
+    #{percentage($frame-2-start / $timeTotal)} {
+      transform: none;
+    }
+
+    #{percentage(($frame-2-start + $frame-2-anim-dur) / $timeTotal)} {
+      transform: translateX(-215px);
+    }
+
+    #{percentage(($frame-2-start + $frame-2-anim-dur + 0.01) / $timeTotal)} {
+      transform: translateX(137px);
+    }
+
+    #{percentage(($frame-4-start) / $timeTotal)} {
+      transform: translateX(137px);
+    }
+
+    #{percentage(($frame-4-start + $frame-4-anim-dur) / $timeTotal)} {
+      transform: none;
+    }
+
+    100% {
+      transform: none;
+    }
+  }
+
+  .deerWrapper {
+    
+  }
+
+  .deer {
+    left: -62px;
+    top: 143px;
+    transform: translateX(230px);
+    // transform: translateX(-230px);
+    animation: deer $timeTotal + s ease-out infinite;
+  }
+
+  @keyframes deer {
+    #{percentage($frame-2-start / $timeTotal)} {
+      transform: translateX(230px);
+    }
+
+    #{percentage(($frame-2-start + $frame-2-anim-dur) / $timeTotal)} {
+      transform: none;
+    }
+
+    #{percentage(($frame-3-start) / $timeTotal)} {
+      transform: none;
+    }
+
+    #{percentage(($frame-3-start + $frame-4-anim-dur) / $timeTotal)} {
+      transform: translateX(-230px);
+    }
+
+    100% {
+      transform: translateX(-230px);
+    }
+  }
+
+  .dogWrapper {
+    
+  }
+
+  .dog {
+    left: 36px;
+    top: 218px;
+    transform: translateX(143px);
+    // transform: translateX(-295px);
+    z-index: 1;
+    animation: dog $timeTotal + s ease-out infinite;
+  }
+
+  @keyframes dog {
+    #{percentage($frame-2-start / $timeTotal)} {
+      transform: translateX(143px);
+    }
+
+    #{percentage(($frame-2-start + $frame-2-anim-dur) / $timeTotal)} {
+      transform: none;
+    }
+
+    #{percentage(($frame-3-start) / $timeTotal)} {
+      transform: none;
+    }
+
+    #{percentage(($frame-3-start + $frame-4-anim-dur) / $timeTotal)} {
+      transform: translateX(-53px);
+    }
+
+    #{percentage(($frame-4-start) / $timeTotal)} {
+      transform: translateX(-53px);
+    }
+
+    #{percentage(($frame-4-start + $frame-4-anim-dur) / $timeTotal)} {
+      transform: translateX(-238px);
+    }
+
+    100% {
+      transform: translateX(-238px);
+    }
+  }
+
+  .logoWrapper {
+    left: 0;
+    top: 0;
+    z-index: 1;
+  }
+
+  .glaciers {
+    left: 0;
+    bottom: 0;
+  }
+
+  .clouds {
+    z-index: 0;
+    height: 100%;
+    animation: clouds $timeTotal * 5 + s linear alternate  infinite;
+  }
+
+  @keyframes clouds {
+    100% {
+      transform: translateX(calc(-100% + #{$widthAdd}));
+    }
+  }
+
+  .header {
+    text-align: center;
+    line-height: 1;
+    font-size: 22px;
+    color: $colorText;
+  }
+
+  .logo {
+    left: 13px;
+    top: 45px;
+    // transform: translateX(-225px);
+    // transform: translateX(227px);
+    animation: logo $timeTotal + s ease-out infinite;
+  }
+
+  @keyframes logo {
+    #{percentage($frame-2-start / $timeTotal)} {
+      transform: none;
+    }
+
+    #{percentage(($frame-2-start + $frame-2-anim-dur) / $timeTotal)} {
+      transform: translateX(-225px);
+    }
+
+    #{percentage(($frame-2-start + $frame-2-anim-dur + 0.01) / $timeTotal)} {
+      transform: translateX(227px);
+    }
+
+    #{percentage(($frame-5-start) / $timeTotal)} {
+      transform: translateX(227px);
+    }
+
+    #{percentage(($frame-5-start + $frame-5-anim-dur) / $timeTotal)} {
+      transform: none;
+    }
+
+    100% {
+      transform: none;
+    }
+  }
+
+  .text-1 {
+    width: 100%;
+    top: 40px;
+    transform: translateX(185px);
+    // transform: translateX(-185px);
+    animation: text1 $timeTotal + s ease-out infinite;
+  }
+
+  @keyframes text1 {
+    #{percentage($frame-2-start / $timeTotal)} {
+      transform: translateX(185px);
+    }
+
+    #{percentage(($frame-2-start + $frame-2-anim-dur) / $timeTotal)} {
+      transform: none;
+    }
+
+    #{percentage(($frame-3-start) / $timeTotal)} {
+      transform: none;
+    }
+
+    #{percentage(($frame-3-start + $frame-3-anim-dur) / $timeTotal)} {
+      transform: translateX(-185px);
+    }
+
+    100% {
+      transform: translateX(-185px);
+    }
+  }
+
+  .text-2 {
+    width: 100%;
+    top: 40px;
+    transform: translateX(203px);
+    // transform: translateX(-203px);
+    animation: text2 $timeTotal + s ease-out infinite;
+  }
+
+  @keyframes text2 {
+    #{percentage(($frame-3-start) / $timeTotal)} {
+      transform: translateX(203px);
+    }
+
+    #{percentage(($frame-3-start + $frame-3-anim-dur) / $timeTotal)} {
+      transform: none;
+    }
+
+    #{percentage(($frame-4-start) / $timeTotal)} {
+      transform: none;
+    }
+
+    #{percentage(($frame-4-start + $frame-4-anim-dur) / $timeTotal)} {
+      transform: translateX(-203px);
+    }
+
+    100% {
+      transform: translateX(-203px); 
+    }
+  }
+
+  .sgLogo {
+    width: 133px;
+    left: 55px;
+    top: 40px;
+    transform: translateX(187px);
+    // transform: translateX(-192px);
+    animation: sgLogo $timeTotal + s ease-out infinite;
+  }
+
+  @keyframes sgLogo {
+    #{percentage(($frame-4-start) / $timeTotal)} {
+      transform: translateX(187px);
+    }
+
+    #{percentage(($frame-4-start + $frame-4-anim-dur) / $timeTotal)} {
+      transform: none;
+    }
+
+    #{percentage(($frame-5-start) / $timeTotal)} {
+      transform: none;
+    }
+
+    #{percentage(($frame-5-start + $frame-5-anim-dur) / $timeTotal)} {
+      transform: translateX(-192px);
+    }
+
+    100% {
+      transform: translateX(-192px);
+    }
+  }
+
+  .template {
+    animation: template $timeTotal + s ease-out infinite;
+  }
+
+  @keyframes template {
+    #{percentage($frame-2-start / $timeTotal)} {
+      
+    }
+
+    #{percentage(($frame-2-start + $frame-2-anim-dur) / $timeTotal)} {
+      
+    }
+
+    #{percentage(($frame-3-start) / $timeTotal)} {
+      
+    }
+
+    #{percentage(($frame-3-start + $frame-3-anim-dur) / $timeTotal)} {
+      
+    }
+
+    #{percentage(($frame-4-start) / $timeTotal)} {
+      
+    }
+
+    #{percentage(($frame-4-start + $frame-4-anim-dur) / $timeTotal)} {
+      
+    }
+
+    #{percentage(($frame-5-start) / $timeTotal)} {
+      
+    }
+
+    #{percentage(($frame-5-start + $frame-5-anim-dur) / $timeTotal)} {
+      
+    }
+
+    100% {
+      
+    }
+  }
+}
