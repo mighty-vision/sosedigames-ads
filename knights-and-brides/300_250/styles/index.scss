@@ -25,26 +25,28 @@ $bg: linear-gradient(to right, #ffdae3, #ffe7ed);
 $colorText: #951b58;
 
 // Timeline
-$timeTotal: 11;
+$timeTotal: 12;
 
 $frame-2-start: 2;
-$frame-2-anim-dur: 0.3;
+$frame-2-anim-dur: 0.45;
 $frame-2-anim-pause: 2;
 
 $frame-3-start: $frame-2-start + $frame-2-anim-dur + $frame-2-anim-pause;
-$frame-3-anim-dur: 0.3;
+$frame-3-anim-dur: 0.45;
 $frame-3-anim-pause: 2;
 
 $frame-4-start: $frame-3-start + $frame-3-anim-dur + $frame-3-anim-pause;
-$frame-4-anim-dur: 0.3;
+$frame-4-anim-dur: 0.45;
 $frame-4-anim-pause: 2;
 
 $frame-5-start: $frame-4-start + $frame-4-anim-dur + $frame-4-anim-pause;
-$frame-5-anim-dur: 0.25;
+$frame-5-anim-dur: 0.45;
 $frame-5-anim-pause: 1;
 
-$text-dur: 0.4;
-$text-delay: 0.07;
+$text-anim-dur: 0.5;
+$text-anim-delay: 0;
+
+$cloud-anim-dur: 28;
 
 // Font
 $font: 'Arial', sans-serif;
@@ -59,8 +61,6 @@ $font: 'Arial', sans-serif;
   cursor: pointer;
   font-family: $font;
   position: relative;
-  // left: 1500px;
-  // top: 1000px;
 
   .parallax {
     transition: transform 0.7s;
@@ -91,8 +91,8 @@ $font: 'Arial', sans-serif;
   .princeWrapper {
     left: 0;
     top: 0;
-    transform: translateX(calc(10px * var(--xMove)))
-               translateY(calc(7px * var(--yMove)));
+    transform: translateX(calc(6px * var(--xMove)))
+               translateY(calc(3px * var(--yMove)));
   }
   
   .prince {
@@ -180,7 +180,7 @@ $font: 'Arial', sans-serif;
     height: auto;
     left: 85px;
     bottom: 77px;
-    animation: hideLogo $timeTotal + s cubic-bezier(0.175, 0.885, 0.465, 1.525) infinite;
+    animation: hideLogo $timeTotal + s ease-out infinite;
   }
 
   @keyframes hideLogo {
@@ -189,27 +189,24 @@ $font: 'Arial', sans-serif;
       opacity: 1;
     }
 
-    #{percentage($frame-2-start + $frame-2-anim-dur) / $timeTotal)} {
-      transform: translateY(100px) scale(0.5) rotateZ(10deg);
+    #{percentage($frame-2-start + $frame-2-anim-dur / 2) / $timeTotal)} {
+      transform: translateY(100px);
       opacity: 0;
     }
 
     #{percentage(($frame-5-start) / $timeTotal)} {
-      transform: translateY(100px) scale(0.5) rotateZ(10deg);
+      transform: translateY(100px) scale(0.5);
       opacity: 0;
     }
 
-    #{percentage(($frame-5-start + 0.35) / $timeTotal)} {
-      transform: rotateZ(-10deg);
+    
+    #{percentage(($frame-5-start + $frame-5-anim-dur / 1.3) / $timeTotal)} {
+      transform: none;
       opacity: 1;
     }
 
-    #{percentage(($frame-5-start + $frame-5-anim-dur + 0.45) / $timeTotal)} {
-      transform: rotateZ(0deg);
-    }
-
     100% {
-      ransform: rotateZ(0deg);
+      transform: none;
     }
   }
 
@@ -222,8 +219,8 @@ $font: 'Arial', sans-serif;
   .cloudWrapper {
     left: 0;
     top: 50px;
-    animation: cloudWrapperAnim $timeTotal * 3 + s linear,
-               cloudWrapperTranslate $timeTotal * 3 + s linear forwards;
+    animation: cloudWrapperAnim $cloud-anim-dur * 3 + s linear,
+               cloudWrapperTranslate $cloud-anim-dur * 3 + s linear forwards;
   }
 
   @keyframes cloudWrapperAnim {
@@ -253,7 +250,7 @@ $font: 'Arial', sans-serif;
   }
 
   .cloudTranslate {
-    animation: cloudWrapperTranslate2 $timeTotal * 3 + s $timeTotal * 3 + s linear infinite;
+    animation: cloudWrapperTranslate2 $cloud-anim-dur * 3 + s $cloud-anim-dur * 3 + s linear infinite;
   }
 
   @keyframes cloudWrapperTranslate2 {
@@ -276,7 +273,7 @@ $font: 'Arial', sans-serif;
     // border: 1px solid;
     left: -230px;
     top: 10px;
-    animation: cloudAnim2 $timeTotal * 3 + s $timeTotal * 3 / 1.65 + s linear infinite;
+    animation: cloudAnim2 $cloud-anim-dur * 3 + s $cloud-anim-dur * 3 / 1.65 + s linear infinite;
   }
 
   @keyframes cloudAnim2 {
@@ -544,12 +541,12 @@ $font: 'Arial', sans-serif;
   }
 
   @keyframes textAnim1 {
-    #{percentage(($frame-2-start + $text-delay) / $timeTotal)} {
+    #{percentage(($frame-2-start + $text-anim-delay) / $timeTotal)} {
       transform: translateY(-100px);
       opacity: 0;
     }
 
-    #{percentage(($frame-2-start + $text-dur + $text-delay) / $timeTotal)} {
+    #{percentage(($frame-2-start + $text-anim-dur + $text-anim-delay) / $timeTotal)} {
       transform: none;
       opacity: 1;
     }
@@ -579,12 +576,12 @@ $font: 'Arial', sans-serif;
   }
 
   @keyframes textAnim2 {
-    #{percentage(($frame-3-start + $text-delay) / $timeTotal)} {
+    #{percentage(($frame-3-start + $text-anim-delay) / $timeTotal)} {
       transform: translateY(-180px);
       opacity: 0;
     }
 
-    #{percentage(($frame-3-start + $text-dur + $text-delay) / $timeTotal)} {
+    #{percentage(($frame-3-start + $text-anim-dur + $text-anim-delay) / $timeTotal)} {
       transform: none;
       opacity: 1;
     }
@@ -610,16 +607,17 @@ $font: 'Arial', sans-serif;
     left: 35px;
     top: -23px;
     opacity: 0;
+    opacity: 1;
     animation: textAnim3 $timeTotal + s ease infinite;
   }
 
   @keyframes textAnim3 {
-    #{percentage(($frame-4-start + $text-delay) / $timeTotal)} {
+    #{percentage(($frame-4-start + $text-anim-delay) / $timeTotal)} {
       transform: translateY(-190px);
       opacity: 0;
     }
 
-    #{percentage(($frame-4-start + $text-dur + $text-delay) / $timeTotal)} {
+    #{percentage(($frame-4-start + $text-anim-dur + $text-anim-delay) / $timeTotal)} {
       transform: none;
       opacity: 1;
     }
@@ -630,12 +628,12 @@ $font: 'Arial', sans-serif;
     }
 
     #{percentage(($frame-5-start + $frame-5-anim-dur) / $timeTotal)} {
-      transform: translateY(135px);
+      transform: translateY(-190px);
       opacity: 0;
     }
 
     100% {
-      transform: translateY(135px);
+      transform: translateY(-190px);
       opacity: 0;
     }
   }
@@ -644,5 +642,6 @@ $font: 'Arial', sans-serif;
     width: 141px;
     position: absolute;
     left: 50px;
-    top: 15px;  }
+    top: 15px;
+  }
 }

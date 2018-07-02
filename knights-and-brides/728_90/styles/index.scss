@@ -13,18 +13,6 @@
   animation: none !important;
 }
 
-// html,
-// body {
-//   width: 100%;
-//   height: 100%;
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   overflow: hidden;
-//   background-color: lightgrey;
-// }
-
-
 ///*** Basic vars ***///
 
 // Sizes
@@ -36,23 +24,28 @@ $colorBg: #ffdae3;
 $colorText: #951b58;
 
 // Timeline
-$timeTotal: 15;
+$timeTotal: 12;
 
 $frame-2-start: 2;
-$frame-2-anim-dur: 0.25;
+$frame-2-anim-dur: 0.45;
 $frame-2-anim-pause: 2;
 
 $frame-3-start: $frame-2-start + $frame-2-anim-dur + $frame-2-anim-pause;
-$frame-3-anim-dur: 0.25;
-$frame-3-anim-pause: 3.55;
+$frame-3-anim-dur: 0.45;
+$frame-3-anim-pause: 2;
 
 $frame-4-start: $frame-3-start + $frame-3-anim-dur + $frame-3-anim-pause;
-$frame-4-anim-dur: 0.25;
-$frame-4-anim-pause: 3.55;
+$frame-4-anim-dur: 0.45;
+$frame-4-anim-pause: 2;
 
 $frame-5-start: $frame-4-start + $frame-4-anim-dur + $frame-4-anim-pause;
-$frame-5-anim-dur: 0.25;
+$frame-5-anim-dur: 0.45;
 $frame-5-anim-pause: 1;
+
+$text-anim-dur: 0.35;
+$text-anim-delay: 0.07;
+
+$cloud-anim-dur: 150;
 
 // Font
 $font: 'Arial', sans-serif;
@@ -107,13 +100,13 @@ $font: 'Arial', sans-serif;
   }
 
   .princess-1-parallax {
-    transform: translateX(calc(3px * var(--xMove)))
+    transform: translateX(calc(3.3px * var(--xMove)))
                translateY(calc(7px * var(--yMove)));
   }
 
   .princess-2-parallax {
-    transform: translateX(calc(5.5px * var(--xMove)))
-               translateY(calc(20px * var(--yMove)));
+    transform: translateX(calc(4.5px * var(--xMove)))
+               translateY(calc(14px * var(--yMove)));
   }
 
   @keyframes princesses1Translate {
@@ -264,18 +257,13 @@ $font: 'Arial', sans-serif;
       opacity: 0;
     }
 
-    #{percentage($frame-3-start + $frame-3-anim-dur + 0.001) / $timeTotal)} {
-      transform: translateY(0) translateX(-270px) rotateZ(-5deg);
-      opacity: 0;
-    }
-
     #{percentage($frame-5-start / $timeTotal)} {
-      transform: translateY(0) translateX(-270px) rotateZ(-50deg);
+      transform: translateY(0) translateX(-270px);
       opacity: 0;
     }
 
     #{percentage($frame-5-start + $frame-5-anim-dur ) / $timeTotal)} {
-      transform: translateY(0) rotateZ(5deg);
+      transform: translateY(0);
       opacity: 1;
     }
 
@@ -337,8 +325,8 @@ $font: 'Arial', sans-serif;
     left: 0px;
     top: 0;
     z-index: 3;
-    animation: cloudWrapperAnim 70 + s linear,
-               cloudWrapperTranslate 70 + s linear forwards;
+    animation: cloudWrapperAnim $cloud-anim-dur + s linear,
+               cloudWrapperTranslate $cloud-anim-dur + s linear forwards;
   }
 
   @keyframes cloudWrapperAnim {
@@ -368,7 +356,7 @@ $font: 'Arial', sans-serif;
   }
 
   .cloudTranslate {
-    animation: cloudWrapperTranslate2 70 + s 70 + s linear infinite;
+    animation: cloudWrapperTranslate2 $cloud-anim-dur + s $cloud-anim-dur + s linear infinite;
   }
 
   @keyframes cloudWrapperTranslate2 {
@@ -380,7 +368,7 @@ $font: 'Arial', sans-serif;
   .cloudWrapper3 {
     left: -670px;
     top: 0;
-    animation: cloudAnim3 70 + s 70 / 2.3 + s linear infinite;
+    animation: cloudAnim3 $cloud-anim-dur + s $cloud-anim-dur / 2.3 + s linear infinite;
   }
 
   @keyframes cloudAnim3 {
@@ -423,7 +411,7 @@ $font: 'Arial', sans-serif;
     width: 165px;
     left: -30px;
     bottom: 0;
-    transform: translateX(calc(5px * var(--xMove)))
+    transform: translateX(calc(6px * var(--xMove)))
                translateY(calc(35px * var(--yMove)));
   }
 
@@ -431,7 +419,7 @@ $font: 'Arial', sans-serif;
     width: 165px;
     right: -30px;
     bottom: 0;
-    transform: scaleX(-1) translateX(calc(-5px * var(--xMove)))
+    transform: scaleX(-1) translateX(calc(-6px * var(--xMove)))
                translateY(calc(35px * var(--yMove)));
   }
 
