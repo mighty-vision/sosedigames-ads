@@ -79,14 +79,14 @@ var translateLayers = {
 translateLayers.init();
 
 //*** Dev. Comment for production build ***//
-var paused = false;
+// var paused = false;
 
-document.addEventListener('click', () => {
-  paused = !paused;
+// document.addEventListener('click', () => {
+//   paused = !paused;
 
-  if(paused) {
-    document.body.classList.add('totalPause');
-  } else {
-    document.body.classList.remove('totalPause');
-  }
-});
+//   if(paused) {
+//     document.body.classList.add('totalPause');
+//   } else {
+//     document.body.classList.remove('totalPause');
+//   }
+// });
