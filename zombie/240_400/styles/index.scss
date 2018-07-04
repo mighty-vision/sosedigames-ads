@@ -1,0 +1,413 @@
+///*** Libs ***///
+@import './reset';
+
+
+//*** Basic styles ***//
+
+//*** Dev. Comment for production build ***//
+.addBody.totalPause * {
+  animation-play-state: paused !important; 
+}
+
+.addBody.resetAnim * {
+  animation: none !important;
+}
+
+
+///*** Basic vars ***///
+
+// Sizes
+$widthAdd: 240px;
+$heightAdd: 400px;
+
+// Colors
+$colorText: white;
+
+// Timeline
+$timeTotal: 9.2;
+
+$frame-2-start: 2;
+$frame-2-anim-dur: 0.3;
+$frame-2-anim-pause: 2;
+
+$frame-3-start: $frame-2-start + $frame-2-anim-dur + $frame-2-anim-pause;
+$frame-3-anim-dur: 0.3;
+$frame-3-anim-pause: 2;
+
+$frame-4-start: $frame-3-start + $frame-3-anim-dur + $frame-3-anim-pause;
+$frame-4-anim-dur: 0.3;
+$frame-4-anim-pause: 2;
+
+$frame-5-start: $frame-4-start + $frame-4-anim-dur + $frame-4-anim-pause;
+$frame-5-anim-dur: 0.25;
+$frame-5-anim-pause: 1;
+
+$text-dur: 0.3;
+$text-delay: 0.07;
+
+// Font
+$font: 'Arial', sans-serif;
+
+
+///*** Ad ***///
+.notAd {
+  width: $widthAdd;
+  height: $heightAdd;
+  overflow: hidden;
+  cursor: pointer;
+  font-family: $font;
+  position: relative;
+  
+  // &::after {
+  //   content: '';
+  //   width: 100%;
+  //   height: 100%;
+  //   position: absolute;
+  //   left: 0;
+  //   top: 0;
+  //   border: 2px hotpink solid;
+  //   z-index: 999;
+  // }
+
+  .parallax {
+    transition: transform 0.7s;
+  }
+
+  &:hover .parallax {
+    transition: transform 0.1s linear;
+  }
+  
+  --xMove: 0;
+  --yMove: 0;
+  
+  * {
+    pointer-events: none;
+  }
+
+  *:not(br) {
+    position: absolute;
+  }
+
+  .wrapper {
+    width: 100%;
+    height: 100%;
+  }
+
+  .overClouds {
+    z-index: 1;
+  }
+
+  .grassWrapper {
+    transform: translateX(calc(10px * var(--xMove)))
+               translateY(calc(7px * var(--yMove)));
+    z-index: 2;
+  }
+
+  .grass {
+    left: calc(50% - #{310px / 2});
+    bottom: -35px;
+  }
+
+  .branch-1-wrapper {
+    z-index: 1;
+    transform: translateX(calc(5px * var(--xMove)))
+               translateY(calc(3px * var(--yMove)));
+  }
+
+  .branch-1 {
+    left: -35px;
+    bottom: 50px;
+  }
+
+  .branch-2-wrapper {
+    z-index: 1;
+    transform: translateX(calc(5px * var(--xMove)))
+               translateY(calc(3px * var(--yMove)));
+  }
+
+  .branch-2 {
+    right: -37px;
+    bottom: 30px;
+    transform: scaleX(-1);
+  }
+
+  .forestWrapper {
+    transform: translateX(calc(3px * var(--xMove)))
+               translateY(calc(2px * var(--yMove)));
+  }
+
+  .forest {
+    left: -20px;
+    bottom: 70px;
+  }
+
+  .zombieWrapper {
+    transform: translateX(calc(7px * var(--xMove)))
+               translateY(calc(4px * var(--yMove)));
+  }
+
+  .zombie {
+    left: 35px;
+    bottom: 63px;
+    transform-origin: 50% 100%;
+    // transform: translateY(210px) scale(0.5);
+    animation: zombie $timeTotal + s ease-out infinite;
+  }
+
+  @keyframes zombie {
+    #{percentage($frame-2-start / $timeTotal)} {
+      transform: none;
+      opacity: 1;
+    }
+
+    #{percentage(($frame-2-start + $frame-2-anim-dur / 1.5) / $timeTotal)} {
+      transform: translateY(100px) scale(0.5);
+      opacity: 1;
+    }
+
+    #{percentage(($frame-2-start + $frame-2-anim-dur / 1.5 + 0.01) / $timeTotal)} {
+      opacity: 0;
+    }
+
+    #{percentage(($frame-5-start) / $timeTotal)} {
+      transform: translateY(100px) scale(0.5);
+      opacity: 0;
+    }
+
+    #{percentage(($frame-5-start + $frame-5-anim-dur) / $timeTotal)} {
+      transform: none;
+      opacity: 1;
+    }
+
+    100% {
+      transform: none;
+      opacity: 1;
+    }
+  }
+
+  .dragonWrapper {
+    transform: translateX(calc(4px * var(--xMove)))
+               translateY(calc(3px * var(--yMove)));
+  }
+
+  .dragon {
+    left: -170px;
+    bottom: 80px;
+    animation: dragon $timeTotal + s linear infinite;
+    opacity: 0;
+  }
+
+  @keyframes dragon {
+    #{percentage($frame-2-start / $timeTotal)} {
+      transform: none;
+      opacity: 0;
+    }
+
+    #{percentage(($frame-2-start + $frame-2-anim-dur) / $timeTotal)} {
+      transform: translateX(150px);
+      opacity: 1;
+    }
+
+    #{percentage(($frame-3-start) / $timeTotal)} {
+      
+    }
+
+    #{percentage(($frame-3-start + $frame-3-anim-dur) / $timeTotal)} {
+      
+    }
+
+    #{percentage(($frame-4-start) / $timeTotal)} {
+      transform: translateX(235px);
+      opacity: 1;
+    }
+
+    #{percentage(($frame-4-start + $frame-4-anim-dur) / $timeTotal)} {
+      transform: translateX(420px);
+      opacity: 0;
+    }
+
+    100% {
+      transform: translateX(420px);
+    }
+  }
+
+  .text {
+    color: $colorText;
+    text-align: center;
+    font-weight: bold;
+    font-size: 23px;
+    line-height: 28px;
+    text-shadow: 0px 1px 2px rgba(0,53,132,0.85);
+  }
+
+  .text-1 {
+    width: 100%;
+    top: 46px;
+    transform: translateX(-195px);
+    opacity: 0;
+    animation: text-1 $timeTotal + s ease-out infinite;
+  }
+
+  @keyframes text-1 {
+    #{percentage($frame-2-start / $timeTotal)} {
+      transform: translateX(-195px);
+      opacity: 0;
+    }
+
+    #{percentage(($frame-2-start + $frame-2-anim-dur) / $timeTotal)} {
+      transform: none;
+      opacity: 1;
+    }
+
+    #{percentage(($frame-3-start) / $timeTotal)} {
+      transform: none;
+      opacity: 1;
+    }
+
+    #{percentage(($frame-3-start + $frame-3-anim-dur) / $timeTotal)} {
+      transform: translateX(198px);
+      opacity: 0;
+    }
+
+    100% {
+      transform: translateX(198px);
+    }
+  }
+
+  .text-2 {
+    width: 100%;
+    top: 46px;
+    transform: translateX(-215px);
+    opacity: 0;
+    animation: text-2 $timeTotal + s ease-out infinite;
+  }
+
+  @keyframes text-2 {
+    #{percentage(($frame-3-start) / $timeTotal)} {
+      transform: translateX(-215px);
+      opacity: 0;
+    }
+
+    #{percentage(($frame-3-start + $frame-3-anim-dur) / $timeTotal)} {
+      transform: none;
+      opacity: 1;
+    }
+
+    #{percentage(($frame-4-start) / $timeTotal)} {
+      transform: none;
+      opacity: 1;
+    }
+
+    #{percentage(($frame-4-start + $frame-4-anim-dur) / $timeTotal)} {
+      transform: translateX(220px);
+      opacity: 0;
+    }
+
+    100% {
+      transform: translateX(220px);
+    }
+  }
+
+  .text-3 {
+    width: 100%;
+    transform: translateX(-185px);
+    opacity: 0;
+    animation: text-3 $timeTotal + s ease-out infinite;
+  }
+
+  @keyframes text-3 {
+    #{percentage(($frame-4-start) / $timeTotal)} {
+      transform: translateX(-185px);
+      opacity: 0;
+    }
+
+    #{percentage(($frame-4-start + $frame-4-anim-dur) / $timeTotal)} {
+      transform: none;
+      opacity: 1;
+    }
+
+    #{percentage(($frame-5-start) / $timeTotal)} {
+      transform: none;
+      opacity: 1;
+    }
+
+    #{percentage(($frame-5-start + $frame-5-anim-dur) / $timeTotal)} {
+      transform: translateY(-175px);
+      opacity: 0;
+    }
+
+    100% {
+      transform: translateY(-175px);
+    }
+  }
+
+  .sgLogo {
+    width: 119px;
+    left: calc(50% - #{119px / 2});
+    top: 105px;
+    filter: drop-shadow(0px 1px 2px rgba(0,53,132,0.85));
+  }
+
+  .clouds {
+    z-index: 0;
+    height: 100%;
+    right: 0;
+    transform: translateZ(0);
+    animation: clouds $timeTotal * 5 + s linear alternate  infinite;
+  }
+
+  @keyframes clouds {
+    100% {
+      transform: translateX(calc(100% - #{$widthAdd}));
+    }
+  }
+
+
+
+
+
+
+
+
+  .template {
+    animation: template $timeTotal + s ease-out infinite;
+  }
+
+  @keyframes template {
+    #{percentage($frame-2-start / $timeTotal)} {
+      
+    }
+
+    #{percentage(($frame-2-start + $frame-2-anim-dur) / $timeTotal)} {
+      
+    }
+
+    #{percentage(($frame-3-start) / $timeTotal)} {
+      
+    }
+
+    #{percentage(($frame-3-start + $frame-3-anim-dur) / $timeTotal)} {
+      
+    }
+
+    #{percentage(($frame-4-start) / $timeTotal)} {
+      
+    }
+
+    #{percentage(($frame-4-start + $frame-4-anim-dur) / $timeTotal)} {
+      
+    }
+
+    #{percentage(($frame-5-start) / $timeTotal)} {
+      
+    }
+
+    #{percentage(($frame-5-start + $frame-5-anim-dur) / $timeTotal)} {
+      
+    }
+
+    100% {
+      
+    }
+  }
+}
