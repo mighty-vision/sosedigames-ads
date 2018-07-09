@@ -24,6 +24,10 @@ Additional questions - [here](https://support.google.com/adwords/answer/6335679?
 
 Requirements - [here](https://yandex.com/adv/requirements/html5)
 
+<img width="256" title="admitad" src="https://raw.githubusercontent.com/mighty-vision/sosedigames-ads/master/readme-img/logo-admitad.png?token=AOaORczZNmHcMkzQz-YD0762l5VwUhKlks5bMptjwA%3D%3D">
+
+Requirements - [here](https://cdn.admitad.com/public/storage/2016/11/09/Trebovaniia_k_banneram_vkliuchaia_html5.pdf)
+
 ---
 
 ### ⚠️ Commom recommendations
