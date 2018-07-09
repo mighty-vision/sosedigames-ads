@@ -12,21 +12,20 @@
 
 ### ⚙️ Requirements for ads:
 
-<img width="256" title="Google AdWords" src="https://raw.githubusercontent.com/mighty-vision/sosedigames-ads/master/readme-img/Google_AdWords.png?token=AOaORQvVZvld1bOa82swfjg7sg_pg6kmks5bMptswA%3D%3D">
+* **Google AdWords:**
+
+  Basic requirements - [here](https://support.google.com/adwords/answer/1722096?hl=en#HTML5)
+
+  Additional questions - [here](https://support.google.com/adwords/answer/6335679?hl=en&ref_topic=3121943)
 
 
-Basic requirements - [here](https://support.google.com/adwords/answer/1722096?hl=en#HTML5)
+* **Yandex.Direct:**
 
-Additional questions - [here](https://support.google.com/adwords/answer/6335679?hl=en&ref_topic=3121943)
+  Requirements - [here](https://yandex.com/adv/requirements/html5)
 
 
-<img width="256" title="Yandex.Direct" src="https://raw.githubusercontent.com/mighty-vision/sosedigames-ads/master/readme-img/YandexDirect.png?token=AOaORczZNmHcMkzQz-YD0762l5VwUhKlks5bMptjwA%3D%3D">
-
-Requirements - [here](https://yandex.com/adv/requirements/html5)
-
-<img width="256" title="admitad" src="https://raw.githubusercontent.com/mighty-vision/sosedigames-ads/master/readme-img/logo-admitad.png?token=AOaORczZNmHcMkzQz-YD0762l5VwUhKlks5bMptjwA%3D%3D">
-
-Requirements - [here](https://cdn.admitad.com/public/storage/2016/11/09/Trebovaniia_k_banneram_vkliuchaia_html5.pdf)
+* **Admitad:**
+  Requirements - [here](https://cdn.admitad.com/public/storage/2016/11/09/Trebovaniia_k_banneram_vkliuchaia_html5.pdf)
 
 ---
 
